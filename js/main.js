@@ -1302,9 +1302,14 @@ function updateUI() {
 function update() {
     increaseDays()
     autoPromote()
-    autoLearn()
     doCurrentTask(gameData.currentJob)
+	var levelPre = gameData.currentSkill.level
     doCurrentTask(gameData.currentSkill)
+	var levelPost = gameData.currentSkill.level
+	if(levelPre != levelPost) {
+		setSkillWithLowestMaxXp()
+		autoLearn()
+	}
     applyExpenses()
     updateUI()
 }
@@ -1489,4 +1494,3 @@ setTab(jobTabButton, "jobs")
 update()
 setInterval(update, 1000 / updateSpeed)
 setInterval(saveGameData, 3000)
-setInterval(setSkillWithLowestMaxXp, 1000)
