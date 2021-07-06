@@ -20,6 +20,8 @@ var gameData = {
 var tempData = {}
 
 var skillWithLowestMaxXp = null
+var lastAutoLearnCheck = performance.now()
+var timeAutoLearnChecks = 500  // milliseconds
 
 const autoPromoteElement = document.getElementById("autoPromote")
 const autoLearnElement = document.getElementById("autoLearn")
@@ -1306,7 +1308,8 @@ function update() {
 	var levelPre = gameData.currentSkill.level
     doCurrentTask(gameData.currentSkill)
 	var levelPost = gameData.currentSkill.level
-	if(levelPre != levelPost) {
+	if(levelPre != levelPost && performance.now() - lastAutoLearnCheck >= timeAutoLearnChecks) {
+		lastAutoLearnCheck = performance.now()
 		setSkillWithLowestMaxXp()
 		autoLearn()
 	}
