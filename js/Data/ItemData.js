@@ -20,6 +20,8 @@ const itemBaseData = {
     "Sapphire charm": {name: "Sapphire charm", expense: 50000, effect: 3, description: "Magic xp"},
     "Study desk": {name: "Study desk", expense: 1000000, effect: 2, description: "Skill xp"},
     "Library": {name: "Library", expense: 10000000, effect: 1.5, description: "Skill xp"},
+
+    
     "Small Field": {name: "Small Field", expense: 130, effect: 5.0, description: "Farm upgrade"},
     "Ox-driven Plow": {name: "Ox-driven Plow", expense: 200, effect: 2.4, description: "Farm upgrade"},
     "Livestock-derived Fertilizer": {name: "Livestock-derived Fertilizer", expense: 20, effect: 1.2, description: "Farm upgrade"},
@@ -33,7 +35,9 @@ const itemBaseData = {
 
 const itemCategories = {
     "Properties": ["Homeless", "Tent", "Wooden hut", "Cottage", "House", "Large house", "Small Manor", "Small palace", "Grand palace"],
-    "Misc": ["Rag Clothing", "Book", "Basic Farm Tools", "Small Field", "Ox-driven Plow", "Livestock-derived Fertilizer", "Cheap Fishing Rod", "Dumbbells", "Miner's Lantern", "Crappy Anvil", "Pack Horse", "Small Shop",
-    "Weapon Outlet", "Personal squire", 
-                "Steel longsword", "Butler", "Sapphire charm", "Study desk", "Library"]
+    "Job Tools": ["Basic Farm Tools", "Small Field", "Ox-driven Plow", "Livestock-derived Fertilizer", "Cheap Fishing Rod", "Miner's Lantern", "Crappy Anvil", "Pack Horse", "Small Shop",
+    "Weapon Outlet",],
+    "Misc": ["Rag Clothing", "Book", "Dumbbells",  "Personal squire", 
+                "Steel longsword", "Butler", "Sapphire charm", "Study desk", "Library"],
+
 }

@@ -10,6 +10,7 @@ const headerRowColors = {
     "Mind": "#87009A",
     "Dark magic": "#73000f",
     "Properties": "#219ebc",
+    "Job Tools": "#FF00FF",
     "Misc": "#b56576",
 }
 
