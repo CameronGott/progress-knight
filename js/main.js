@@ -343,9 +343,12 @@ function createAllRows(categoryType, tableId) {
 
     var table = document.getElementById(tableId)
 
+    var listHeaders = []
+
     for (categoryName in categoryType) {
         var headerRow = createHeaderRow(templates, categoryType, categoryName)
         table.appendChild(headerRow)
+        listHeaders.push(headerRow)
         
         var category = categoryType[categoryName]
         category.forEach(function(name) {
@@ -356,7 +359,39 @@ function createAllRows(categoryType, tableId) {
         var requiredRow = createRequiredRow(categoryName)
         table.append(requiredRow)
     }
+
+    for (var headerItemRow in listHeaders){
+        //Clopases headers when you click on them
+        console.log(listHeaders[headerItemRow])
+        listHeaders[headerItemRow].onclick = function(){
+            var list = nextUntil(this, ".requiredRow");
+            for (var item in list){
+                if (list[item].style.display === "none") {
+                    list[item].style.display = "";
+                  } else {
+                    list[item].style.display = "none";
+                  }
+            }
+        };
+    }
 }
+
+var nextUntil = function (elem, selector) {
+	var siblings = [];
+	elem = elem.nextElementSibling;
+
+	while (elem) {
+
+		if (elem.matches(selector)){
+            break;
+        }
+
+		siblings.push(elem);
+		elem = elem.nextElementSibling;
+        
+	}
+	return siblings;
+};
 
 function updateQuickTaskDisplay(taskType) {
     var currentTask = taskType == "job" ? gameData.currentJob : gameData.currentSkill
