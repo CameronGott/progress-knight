@@ -37,6 +37,10 @@ class Task {
         return applyMultipliers(10, this.xpMultipliers)
     }
 
+    getDaysToLevel(){
+        return this.getXpLeft() / this.getXpGain();
+    }
+
     increaseXp() {
         this.xp += applySpeed(this.getXpGain())
         if (this.xp >= this.getMaxXp()) {

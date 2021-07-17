@@ -362,7 +362,6 @@ function createAllRows(categoryType, tableId) {
 
     for (var headerItemRow in listHeaders){
         //Clopases headers when you click on them
-        console.log(listHeaders[headerItemRow])
         listHeaders[headerItemRow].onclick = function(){
             var list = nextUntil(this, ".requiredRow");
             for (var item in list){
@@ -388,7 +387,7 @@ var nextUntil = function (elem, selector) {
 
 		siblings.push(elem);
 		elem = elem.nextElementSibling;
-        
+
 	}
 	return siblings;
 };
@@ -770,7 +769,7 @@ function setSkillWithLowestMaxXp() {
                 requirement = gameData.requirements["Concentration"];
             }
             if (requirement.isCompleted() && !checkSkillSkipped(skill)) {
-                xpDict[skill.name] = skill.level //skill.getMaxXp() / skill.getXpGain()
+                xpDict[skill.name] = skill.getDaysToLevel()// skill.level //skill.getMaxXp() / skill.getXpGain()
             }
         }
     }
