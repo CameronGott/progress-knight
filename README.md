@@ -2,12 +2,50 @@
 An incremental game developed by ihtasham42 and extended by Cameron Gott. Link to the game: https://ihtasham42.github.io/progress-knight/
 
 # dev-diary  
+7/12/2021  
+It's time to move the story forward. It's time to learn how to be a Chairman so skilled, so wise, that that Chairman is worthy of level 1000.  
+
+The Chairman tooltip alludes to the sole pursuit of immortality. Once a character reaches Chairman, their willpower and focus is dedicated towards discovering the mysteries of both magic and biology in order to find, if there is one, a way to enhance one's lifespan.  
+
+The natural course forward is to learn new ways of thinking. Novel pursuits of knowledge that combine existing techniques in creative ways to peel back the layers of the unknown.  
+Thus, the way forward to Chairman level 1000, and immortality, is through the Mind. The Mind controls and conducts both Magic and Knowledge, and synthesizes them into entirely new ways of thinking and being.  
+ 
+
+The potential routes of experimentation are infinite. The questions, limitless. What should a budding Chairman focus on in order to enhance their knowledge of both life and magic?  
+In medieval times, biology is limited by the tools of the time. Without microscopes and advanced chemistry, it's almost impossible to fully grasp the concept of cellular life and the underlying mechanisms governing DNA, metabolism, and degradation of biological structures. Magical Engineering is a worthy pursuit for a Chairman looking to use Magic to build the tools of future scientific inquiry.  
+
+Up to this point, a Chairman's experience with Magic is almost entirely on the human scale. A budding apprentice learns to extend the life of a flower. A mage learns to incinerate man, horse, and siege engine. Master Wizards learn to shake the earth and obscure the vision of their human opponents with natural phenomena and magic alike. A Chairman must learn to shift their focus from the scale of humanity to both higher highs and lower lows. A Chairman seeking immortality must investigate the smallest structures of existence, must continue probing deeper and uncovering astounding knowledge and even more astounding questions. Thus Scales of Thought will enhance Mana Control and Chairman experience gain rates by a substantial rate. By probing nature on a deeper level, a Chairman gains unparalleled understanding which influences every magical action pursuit.  
+
+Magical Biology seeks to combine the previous two skills into a direct XP boost to Chairman experience. Through Magical Biology, a Chairman seeks to leverage their new inventions and new frames of thought to directly probe, change, experiment and observe the effects of magic on various cellular structures to enhance their vitality and vigor. Magical Biology is the final step towards immortality.  
+
+Upon reaching Chairman 1000, the Super Immortality skill unlocks. In addition, a new magic job will unlock titled Illustrious Chairman, reflecting your astounding power and wisdom.  
+But when you accept this new honorific, you receive a note in the night:  
+    "We have followed your progress with great interest. Many have walked this path, but few have used the amulet you now wear to its full potential. But you are not the first to make it this far. Strive on. We will contact you, when the time is right."  
+
+Shifting from lore to code, how do we implement this? Simply add the three skills:  
+-Magical Engineering  
+-Scales Of Thought  
+-Magical Biology  
+
+And a new Job:  
+-Illustrious Chairman
+
+
+*** Changelog ***  
+-added three new skills to Mind
+-Added one new job to The Arcane Association  
+
 7/2/2021  
 Work progresses on Town features. But in the mean time, I added a few goodies to v0.3.  
 
 -added new items to the Farmer job track  
 -added new Small Manor property  
 -fix for Shop table button heights  
+
+Future:  
+-add a new item category "Job aids" or some similar name
+-add all job boost items to the new category
+-change the updateRequiredRow logic to display these separately from the main generic line of items so that they are uncoupled
 
 6/23/2021  
 -Uncoupled Time Warping and Flow effects. Flow will no longer influence the display value of Time Warp under its skill description  

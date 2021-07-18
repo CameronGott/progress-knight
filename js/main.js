@@ -33,7 +33,8 @@ const jobTabButton = document.getElementById("jobTabButton")
 function getBaseLog(x, y) {
     return Math.log(y) / Math.log(x);
 }
-  
+
+
 function getBindedTaskEffect(taskName) {
     var task = gameData.taskData[taskName]
     return task.getEffect.bind(task)
@@ -100,6 +101,16 @@ function addMultipliers() {
             task.xpMultipliers.push(getBindedItemEffect("Small Shop"));
             task.incomeMultipliers.push(getBindedItemEffect("Weapon Outlet"));
             task.xpMultipliers.push(getBindedItemEffect("Weapon Outlet"));
+        } else if (task.name == "Chairman") {
+            task.incomeMultipliers.push(getBindedTaskEffect("Magical Engineering"));
+            task.xpMultipliers.push(getBindedTaskEffect("Magical Engineering"));
+            task.xpMultipliers.push(getBindedTaskEffect("Scales Of Thought"));
+            task.xpMultipliers.push(getBindedTaskEffect("Magical Biology"));
+        } else if (task.name == "Illustrious Chairman") {
+            task.incomeMultipliers.push(getBindedTaskEffect("Magical Engineering"));
+            task.xpMultipliers.push(getBindedTaskEffect("Magical Engineering"));
+            task.xpMultipliers.push(getBindedTaskEffect("Scales Of Thought"));
+            task.xpMultipliers.push(getBindedTaskEffect("Magical Biology"));
         } else if (task.name == "Strength") {
             task.xpMultipliers.push(getBindedTaskEffect("Muscle memory"))
             task.xpMultipliers.push(getBindedItemEffect("Dumbbells"))
@@ -107,6 +118,7 @@ function addMultipliers() {
             task.xpMultipliers.push(getBindedItemEffect("Sapphire charm"));
             task.xpMultipliers.push(getBindedTaskEffect("Novel Knowledge"));
             task.xpMultipliers.push(getBindedTaskEffect("Unusual Insight"));
+            task.xpMultipliers.push(getBindedTaskEffect("Scales Of Thought"));
         } else if (jobCategories["The Arcane Association"].includes(task.name)) {
             task.xpMultipliers.push(getBindedTaskEffect("Mana control"));
             task.xpMultipliers.push(getBindedTaskEffect("Novel Knowledge"));
@@ -181,6 +193,7 @@ function getEvil() {
 function applyMultipliers(value, multipliers) {
     var finalMultiplier = 1;
     multipliers.forEach(function(multiplierFunction) {
+        //wtf is multiplier function? It's called like a function, but we have no function definition ANYWHERE. Mrrrrr...
         var multiplier = multiplierFunction();
         finalMultiplier *= multiplier;
     });
@@ -744,7 +757,7 @@ function checkSkillSkipped(skill) {
 }
 
 function setSkillWithLowestMaxXp() {
-    var xpDict = {}
+    var enabledSkills = []
 
     for (skillName in gameData.taskData) {
         var skill = gameData.taskData[skillName]
@@ -774,12 +787,14 @@ function setSkillWithLowestMaxXp() {
         }
     }
 
-    if (xpDict == {}) {
+    if (enabledSkills.length == 0) {
         skillWithLowestMaxXp = gameData.taskData["Concentration"]
         return
     }
+	
+	enabledSkills.sort((lhs, rhs) => { return lhs.getMaxXp() / lhs.getXpGain() - rhs.getMaxXp() / rhs.getXpGain() })
 
-    var skillName = getKeyOfLowestValueFromDict(xpDict)
+    var skillName = enabledSkills[0].name
     skillWithLowestMaxXp = gameData.taskData[skillName]
 }
 
@@ -1137,6 +1152,7 @@ gameData.requirements = {
     "Wizard": new TaskRequirement([getTaskElement("Wizard")], [{task: "Mana control", requirement: 1000}, {task: "Mage", requirement: 10}]),
     "Master wizard": new TaskRequirement([getTaskElement("Master wizard")], [{task: "Mana control", requirement: 1500}, {task: "Wizard", requirement: 10}]),
     "Chairman": new TaskRequirement([getTaskElement("Chairman")], [{task: "Mana control", requirement: 2000}, {task: "Master wizard", requirement: 10}]),
+    "Illustrious Chairman": new TaskRequirement([getTaskElement("Illustrious Chairman")], [{task: "Mana control", requirement: 3000}, {task: "Chairman", requirement: 1000}]),
 
     //The Order of Discovery
     "Junior Caretaker": new TaskRequirement([getTaskElement("Junior Caretaker")], 
@@ -1184,6 +1200,9 @@ gameData.requirements = {
     "Unusual Insight": new TaskRequirement([getTaskElement("Unusual Insight")], [{task: "Meditation", requirement: 900}, {task: "Novel Knowledge", requirement: 900}]),
     "Trade Psychology": new TaskRequirement([getTaskElement("Trade Psychology")], [{task: "Unusual Insight", requirement: 900}, {task: "Probation", requirement: 40}]),
     "Flow": new TaskRequirement([getTaskElement("Flow")], [{task: "Unusual Insight", requirement: 1500}, {task: "Probation", requirement: 40}]),
+    "Magical Engineering": new TaskRequirement([getTaskElement("Magical Engineering")], [{task: "Chairman", requirement: 1}]),
+    "Scales Of Thought": new TaskRequirement([getTaskElement("Scales Of Thought")], [{task: "Chairman", requirement: 15}]),
+    "Magical Biology": new TaskRequirement([getTaskElement("Magical Biology")], [{task: "Chairman", requirement: 150}]),
 
     //Dark magic
     "Dark influence": new EvilRequirement([getTaskElement("Dark influence")], [{requirement: 1}]),
