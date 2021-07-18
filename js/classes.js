@@ -38,7 +38,7 @@ class Task {
     }
 
     getDaysToLevel(){
-        return this.getXpLeft() / this.getXpGain();
+        return this.getMaxXp() / this.getXpGain();
     }
 
     increaseXp() {
