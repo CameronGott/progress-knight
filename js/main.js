@@ -782,7 +782,7 @@ function setSkillWithLowestMaxXp() {
                 requirement = gameData.requirements["Concentration"];
             }
             if (requirement.isCompleted() && !checkSkillSkipped(skill)) {
-                xpDict[skill.name] = skill.getDaysToLevel()// skill.level //skill.getMaxXp() / skill.getXpGain()
+                enabledSkills.push(skill)
             }
         }
     }
