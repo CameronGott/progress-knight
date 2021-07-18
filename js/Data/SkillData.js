@@ -34,6 +34,9 @@ const skillBaseData = {
     "Unusual Insight": {name: "Unusual Insight", maxXp: 100, effect: 0.005, description: "Magical xp"},
     "Trade Psychology": {name: "Trade Psychology", maxXp: 100, effect: 0.80, description: "Merchant pay"},
     "Flow": {name: "Flow", maxXp: 800, effect: 0.001, description: "Gamespeed"},
+    "Magical Engineering": {name: "Magical Engineering", maxXp: 1000, effect: 0.01, description: "Chairman xp"},
+    "Scales Of Thought": {name: "Scales Of Thought", maxXp: 1100, effect: 0.003, description: "Magical xp"},
+    "Magical Biology": {name: "Magical Biology", maxXp: 1500, effect: 0.005, description: "Chairman xp"},
 
     "Dark influence": {name: "Dark influence", maxXp: 100, effect: 0.01, description: "All xp"},
     "Evil control": {name: "Evil control", maxXp: 100, effect: 0.01, description: "Evil gain"},
@@ -48,7 +51,6 @@ const skillCategories = {
     "Fundamentals"           :    ["Concentration", "Productivity", "Bargaining", "Meditation"],
     "Combat"                 :    ["Strength", "Battle tactics", "Muscle memory"],
     "Magic"                  :    ["Mana control", "Immortality", "Time warping", "Super immortality"],
-    "Mind"                   :    ["Novel Knowledge", "Unusual Insight", "Trade Psychology", "Flow"],
+    "Mind"                   :    ["Novel Knowledge", "Unusual Insight", "Trade Psychology", "Flow", "Magical Engineering","Scales Of Thought","Magical Biology"],
     "Dark magic"             :    ["Dark influence", "Evil control", "Intimidation", "Demon training", "Blood meditation", "Demon's wealth"],
-    
 }

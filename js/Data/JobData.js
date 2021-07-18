@@ -21,6 +21,7 @@ const jobBaseData = {
     "Wizard": {name: "Wizard", maxXp: 100000000, income: 50000},
     "Master wizard": {name: "Master wizard", maxXp: 10000000000, income: 250000},
     "Chairman": {name: "Chairman", maxXp: 1000000000000, income: 1000000},
+    "Illustrious Chairman": {name: "Illustrious Chairman", maxXp: 7000000000000, income: 1500000},
 
     "Junior Caretaker": {name: "Junior Caretaker", maxXp: 100000, income: 15},
     "Lead Caretaker": {name: "Lead Caretaker", maxXp: 1000000, income: 115}, 
@@ -47,7 +48,7 @@ const jobBaseData = {
 const jobCategories = {
     "Common work"            :    ["Beggar", "Farmer", "Fisherman", "Miner", "Blacksmith", "Merchant"],
     "Military"               :    ["Squire", "Footman", "Veteran footman", "Knight", "Veteran knight", "Elite knight", "Holy knight", "Legendary knight"],
-    "The Arcane Association" :    ["Student", "Apprentice mage", "Mage", "Wizard", "Master wizard", "Chairman"],
+    "The Arcane Association" :    ["Student", "Apprentice mage", "Mage", "Wizard", "Master wizard", "Chairman", "Illustrious Chairman"],
     "The Order of Discovery" :    ["Junior Caretaker", "Lead Caretaker", "Freshman", "Sophomore", "Junior", "Senior", "Probation"],
     "Nobility"               :    ["Baronet", "Baron", "Vice Count", "Count", "Duke", "Grand Duke", "Arch Duke", "Lord", "High Lord", "King", "High King", "Emperor of Mankind"]
 }
