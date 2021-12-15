@@ -16,6 +16,11 @@ var gameData = {
     currentSkill: null,
     currentProperty: null,
     currentMisc: null,
+
+    autoPromote: false,
+    autoLearn: false,
+    skippedSkills: [],
+    darkMode: true
 }
 
 //tempData is used during initial game setup. 
@@ -1351,7 +1356,33 @@ function replaceSaveDict(dict, saveDict) {
     }
 }
 
+function saveSkipSkillsAndDarkMode() {
+    gameData.autoPromote = autoPromoteElement.checked;
+    gameData.autoLearn = autoLearnElement.checked;
+    gameData.skippedSkills = [];
+
+    for(skillName in gameData.taskData) {
+        if(document.getElementById("row " + skillName).getElementsByClassName("checkbox")[0].checked) {
+            gameData.skippedSkills.push(skillName);
+        }
+    }
+
+    gameData.darkMode = document.getElementById("body").classList.contains("dark");
+}
+
+function loadSkipSkillsAndDarkMode() {
+    autoPromoteElement.checked = gameData.autoPromote;
+    autoLearnElement.checked = gameData.autoLearn;
+
+    for(var x = 0; x < gameData.skippedSkills.length; x++) {
+        document.getElementById("row " + gameData.skippedSkills[x]).getElementsByClassName("checkbox")[0].checked = true;
+    }
+
+    if(!gameData.darkMode) setLightDarkMode();
+}
+
 function saveGameData() {
+    saveSkipSkillsAndDarkMode();
     saveTownState();
     localStorage.setItem("gameDataSave", JSON.stringify(gameData));
 }
@@ -1367,6 +1398,7 @@ function loadGameData() {
         //replaceSaveDict(gameData.townData, gameDataSave.townData);
 
         gameData = gameDataSave;
+        loadSkipSkillsAndDarkMode();
     }
 
     loadTownState();
