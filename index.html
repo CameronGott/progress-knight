@@ -18,12 +18,12 @@
     
 </head>
 <body id="body" class="dark">
-    <div class="w3-margin"> 
-        <h1>Progress Knight - Reborn</h1>
+    <div> 
+        <h1 id="title" class="dark w3-padding">Progress Knight - Reborn</h1>
         <div style="width: 1220px; height: 600px">
 
             <!--******* Left-hand summary panel *******-->
-            <div class="panel w3-padding" style="width: 300px; height: auto; float: left">
+            <div id="sidebar" class="panel w3-padding">
                 <span id="deathText">
                     <div style="font-size: large; color: red">Age has caught up to you</div>
                     <div class="sidebar-element" style="color: gray">Your age has met your lifespan, use the amulet to rebirth before you pass away</div>
@@ -117,7 +117,7 @@
             </div> <!-- End left-hand summary panel -->
             
             <!--******* Nav-bar with tabbed content navigation buttons *******-->
-            <div class="panel w3-margin-left" style="width: 900px; height: 40px; float: left">
+            <div id="navbar" class="panel w3-margin-left">
                 <div class="w3-button w3-bar-item tabButton" id="jobTabButton" onClick="setTab(this, 'jobs')">Jobs</div>
                 <div class="w3-button w3-bar-item tabButton" onClick="setTab(this, 'skills')">Skills</div>
                 <div class="w3-button w3-bar-item tabButton" id="shopTabButton" onClick="setTab(this, 'shop')">Shop</div>
@@ -126,7 +126,7 @@
                 <div class="w3-button w3-bar-item tabButton" onClick="setTab(this, 'settings')" style="float: right">Settings</div>
             </div> <!-- End nav-bar -->
 
-            <div class="panel w3-margin-left w3-margin-top w3-padding" style="width: 900px; height: auto; float: left">
+            <div id="main" class="panel w3-padding">
                 <template class="headerRowTaskTemplate">
                     <tr>
                         <th class="category" style="width: 250px">Job</th>
@@ -303,7 +303,7 @@
                                         <span></span>
                                         <span></span>
                             </span> <br>
-                            Cost growth: 1.0%  <br>
+                            Cost growth: 7.0%  <br>
                             Effect: Additional 6% Farm income (compounding) <br><br>
                         
                             Note: Your town's abuse of the grain markets has been noted. Expect the kingdon to limit your egregious profits soon.<br></span>

@@ -2,6 +2,45 @@ body {
     background-color: rgb(243, 243, 243);
 }
 
+h1 {
+    background-color: rgb(243, 243, 243);
+}
+
+#title{
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    height: 77px;
+    width: 100%;
+    margin-top: 0;
+}
+
+#sidebar{
+    position: fixed;
+    z-index: 1;
+    top: 77px;
+    left: 16px;
+    width: 300px;
+}
+
+#navbar{
+    position: fixed;
+    z-index: 1;
+    top: 77px;
+    left: 316px;
+    height: 40px;
+    width: 900px;
+}
+
+#main{
+    position: relative;
+    margin: 16px;
+    top: 117px;
+    left: 316px;
+    width: 900px;
+}
+
 .w3-bar-item {
     width: 100px;
     height: 40px;
@@ -75,7 +114,7 @@ button:focus {
 }
   
 .tooltip .tooltipText {
-    visibility: hidden; 
+    display: none;
     width: 20vw;
     background-color: black;
     color: #fff;
@@ -100,7 +139,7 @@ button:focus {
 }
   
 .tooltip:hover .tooltipText {
-    visibility: visible;
+    display: inline-block;
     opacity: 0.9;
 }
 
